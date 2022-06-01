@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-exam-2022/static/css/main.806ffda6.css",
+    "main.js": "/react-exam-2022/static/js/main.034b0b7a.js",
+    "static/js/787.6514f181.chunk.js": "/react-exam-2022/static/js/787.6514f181.chunk.js",
+    "static/media/logo.svg": "/react-exam-2022/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-exam-2022/index.html",
+    "main.806ffda6.css.map": "/react-exam-2022/static/css/main.806ffda6.css.map",
+    "main.034b0b7a.js.map": "/react-exam-2022/static/js/main.034b0b7a.js.map",
+    "787.6514f181.chunk.js.map": "/react-exam-2022/static/js/787.6514f181.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.806ffda6.css",
+    "static/js/main.034b0b7a.js"
+  ]
+}
