@@ -1,7 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
@@ -45,8 +44,8 @@ const App = () => {
 
       <nav class="navbar navbar-light bg-light justify-content-between navbar-fixed-top">
         <div class="container">
-          <a class="navbar-brand">Navbar</a>
-          <form class="form-inline">
+          <p class="navbar-brand" >Examen Parcial - Eithan</p>
+          <form className="nav-buttons form-inline">
             <Button
               variant="primary"
               onClick={() => {
@@ -67,49 +66,65 @@ const App = () => {
               Button fotos
             </Button>
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
+            <Button
+              class="btn btn-outline-success my-2 my-sm-0"
+              variant="success"
+              onClick={() => {
+                //fetchPhotos();
+                setMode("deploy");
+              }}
+            >
+              deploy{" "}
+            </Button>
           </form>
         </div>
       </nav>
 
-      <Row className="my-4 p-0 m-0">
-        <Col className="col-6 p-0">
-          <Button
-            variant="primary"
-            onClick={() => {
-              fetchDataTable();
-              setMode("table");
-            }}
-          >
-            Button tabla
-          </Button>
-        </Col>
-
-        <Col className="col-6 p-0">
-          <Button
-            variant="primary"
-            onClick={() => {
-              fetchPhotos();
-              setMode("photo");
-            }}
-          >
-            Button fotos
-          </Button>
-        </Col>
-      </Row>
-
-      <h1>photos</h1>
       {photos.length !== 0 && mode === "photo" ? (
-        <ImgContainer data={photos} getPhotos  = {()=>{fetchPhotos()}}></ImgContainer>
+        <div>
+          <h1>photos</h1>
+          <ImgContainer
+            data={photos}
+            getPhotos={() => {
+              fetchPhotos();
+            }}
+          ></ImgContainer>
+        </div>
       ) : (
         <div></div>
       )}
 
-      <h1>table</h1>
       {dataTable.length !== 0 && mode === "table" ? (
-        <PostsTable data={dataTable} setData={setDataTable}></PostsTable>
+        <div>
+          <h1>table</h1>
+          <PostsTable data={dataTable} setData={setDataTable}></PostsTable>
+        </div>
+      ) : (
+        <div></div>
+      )}
+
+      {mode === "deploy" ? (
+        <div>
+          <h1>deploy</h1>
+          <br></br>
+          <h4>Desplegados</h4>
+          <a href="https://eithan-hernandez.github.io/react-exam-2022">
+            deploy en github pages
+          </a>{" "}
+          <br></br>
+          <a href="https://react-rhflycnyeq-uc.a.run.app">
+            deploy en google cloud run
+          </a>
+          <h4>Repositorios</h4>
+          <a href="https://github.com/eithan-hernandez/react-exam-2022">
+            React github
+          </a>{" "}
+          <br></br>
+          <a href="https://eithan_hernandez@bitbucket.org/eithan_hernandez/react-docker-exam-2022.git">
+            Docker bitbucket
+          </a>
+          <p></p>
+        </div>
       ) : (
         <div></div>
       )}

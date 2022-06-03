@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ImgContainer = (props) => {
   const [index, setIndex] = useState(0);
-  const [items, setItems] = useState(10)
+  const [items, setItems] = useState(1);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -19,11 +19,18 @@ const ImgContainer = (props) => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Elementos: </Form.Label>
-                <Form.Control type="number" placeholder="10" onChange={(event)=> {
-                  setItems(event.target.value)
-                  props.getPhotos()
-
-                }} />
+                <Form.Control
+                  type="number"
+                  placeholder={items}
+                  min="1"
+                  value={items}
+                  onChange={(event) => {
+                    if (event.target.value > 0) {
+                      setItems(event.target.value);
+                      props.getPhotos();
+                    }
+                  }}
+                />
                 <Form.Text className="text-muted">
                   Numero de elementos a mostrar
                 </Form.Text>
